@@ -82,6 +82,52 @@ export const useAuthStore = defineStore('auth', () => {
 <img src="https://github.com/user-attachments/assets/cb01267b-7007-483a-b541-c162b9f35b81" width="400"> </br>
 Pada halaman login (LoginPage.vue), terdapat tombol untuk login dengan Google.Ketika tombol ini diklik, aplikasi akan memanggil loginWithGoogle() dari store untuk memulai proses login dengan akun Google.
 
+```
+<!-- src/pages/LoginPage.vue -->
+<template>
+    <ion-page>
+        <ion-content :fullscreen="true">
+            <div class="login-container">
+                <ion-text style="margin-bottom: 20px; text-align: center;">
+                    <h1>Login ke Aplikasi</h1>
+                </ion-text>
+                <ion-button expand="block" @click="loginWithGoogle">
+                    Login dengan Google
+                </ion-button>
+            </div>
+        </ion-content>
+    </ion-page>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { useAuthStore } from '@/stores/auth';
+
+export default defineComponent({
+    setup() {
+        const authStore = useAuthStore(); // Mengakses store auth
+
+        // Memanggil metode loginWithGoogle dari store
+        const loginWithGoogle = () => {
+            authStore.loginWithGoogle();
+        };
+
+        return { loginWithGoogle };
+    },
+});
+</script>
+
+<style scoped>
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+</style>
+```
+
 ## 4. Tampilan Home </br>
 <img src="https://github.com/user-attachments/assets/60ce7017-9eac-459c-8d3c-05c92c098c77" width="400"></br>
 Setelah berhasil login, pengguna akan diarahkan ke halaman beranda (/home).
@@ -127,8 +173,74 @@ export default defineComponent({
 }
 </style>
 ```
-## 5. 
+## 5. Tampilan Halaman Profile
+Firebase Auth sudah mengautentikasi pengguna menggunakan Google. Setelah login, informasi pengguna (seperti nama, email, dan foto profil) dapat diambil dari objek user yang ada di Firebase.
+Dalam store Pinia (auth.ts), sudah disimpan data pengguna setelah login dengan Google, yang bisa diakses di halaman profil. Selanjutnya akan menampilkan data tersebut di halaman profil.
+```
+<!-- src/pages/ProfilePage.vue -->
+<template>
+    <ion-page>
+        <ion-content :fullscreen="true">
+            <div class="profile-container">
+                <ion-text style="text-align: center;">
+                    <h2>Profil Pengguna</h2>
+                </ion-text>
 
+                <div class="profile-info">
+                    <!-- Menampilkan foto profil jika ada -->
+                    <ion-img :src="user.photoURL" v-if="user.photoURL" />
+                    <ion-text>
+                        <h3>{{ user.displayName }}</h3>
+                        <p>Email: {{ user.email }}</p>
+                    </ion-text>
+                </div>
+
+                <ion-button expand="block" @click="logout">Logout</ion-button>
+            </div>
+        </ion-content>
+    </ion-page>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { useAuthStore } from '@/stores/auth';
+
+export default defineComponent({
+    setup() {
+        const authStore = useAuthStore(); // Mengakses store auth
+
+        // Fungsi logout
+        const logout = () => {
+            authStore.logout(); // Memanggil metode logout dari store
+        };
+
+        return { user: authStore.user, logout }; // Mengakses data pengguna dari store
+    },
+});
+</script>
+
+<style scoped>
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-info {
+    margin: 20px;
+    text-align: center;
+}
+
+ion-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+</style>
+```
 
 
 

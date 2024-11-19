@@ -174,6 +174,8 @@ export default defineComponent({
 </style>
 ```
 ## 5. Tampilan Halaman Profile
+<img src="https://github.com/user-attachments/assets/1b47a65f-daaa-42be-8956-39276be8b9c0" width="400"> </br>
+
 Firebase Auth sudah mengautentikasi pengguna menggunakan Google. Setelah login, informasi pengguna (seperti nama, email, dan foto profil) dapat diambil dari objek user yang ada di Firebase.
 Dalam store Pinia (auth.ts), sudah disimpan data pengguna setelah login dengan Google, yang bisa diakses di halaman profil. Selanjutnya akan menampilkan data tersebut di halaman profil.
 ```

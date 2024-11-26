@@ -338,7 +338,7 @@ const showToast = (message, color) => {
 ### Tampilan Edit Todo
 ### a. Form Edit Todo
 <img src="https://github.com/user-attachments/assets/12db41f1-e0b9-4b92-b976-555b6bc0c516" width="400">
-<img src="https://github.com/user-attachments/assets/878f6315-882b-431c-8b84-1d21582c5c57" width="400"> </br>\
+<img src="https://github.com/user-attachments/assets/878f6315-882b-431c-8b84-1d21582c5c57" width="400"> </br>
 
 Edit to do dapat dilakukan dengan cara slide to do ke kiri untuk menampilkan option edit. Setelah option edit dipilih, akan menampilkan form edit todo. Akses edit to do ini didapat dari kode:
 ```
@@ -393,7 +393,7 @@ const input = () => {
 ```
 
 ### b. Alert edit success
-<img src="https://github.com/user-attachments/assets/807905ff-5502-47ee-9bcf-6ca621d44559" width="400"> </br>\
+<img src="https://github.com/user-attachments/assets/807905ff-5502-47ee-9bcf-6ca621d44559" width="400"> </br>
 
 Ketika button edit todo di klik, akan menampilkan alert success yang didapat dari kode:
 ```
@@ -405,7 +405,7 @@ if (editingId.value) {
 
 ## Hapus Todo
 <img src="https://github.com/user-attachments/assets/b2acd2c1-cae5-4245-a082-36ab1b1df2cd" width="400">
-<img src="https://github.com/user-attachments/assets/91e438f2-332a-4de5-a9b7-f36600e0f492" width="400"> </br>\
+<img src="https://github.com/user-attachments/assets/91e438f2-332a-4de5-a9b7-f36600e0f492" width="400"> </br>
 
 Delete todo dapat dilakukan dengan cara swipe todo ke kanan yang didapat dari kode:
 ```
@@ -440,7 +440,7 @@ const handleDelete = async (deleteTodo: Todo) => {
 ## Marked as completed
 <img src="https://github.com/user-attachments/assets/28328cf8-098f-4658-a519-d371f918c136" width="400">
 <img src="https://github.com/user-attachments/assets/b575f2c7-0269-49b4-82ba-ae276bfb67d4" width="400"> 
-<img src="https://github.com/user-attachments/assets//7a9ff5fd-21ae-4289-990f-06757fa1b085" width="400"> </br>\
+<img src="https://github.com/user-attachments/assets//7a9ff5fd-21ae-4289-990f-06757fa1b085" width="400"> </br>
 
 Marked as complete dapat dilakukan dengan swipe todo ke kiri yang kemudian akan menampilkan alert todo marked as complete dan todo akan tampil di bagian completed. Proses marked as complete ini didapat dari kode:
 ```const handleStatus = async (statusTodo: Todo) => {
@@ -462,8 +462,8 @@ Marked as complete dapat dilakukan dengan swipe todo ke kiri yang kemudian akan 
 ```
 
 ## Marked as active
-<img src="https://github.com/user-attachments/assets//9c0655bd-7e45-43bf-b846-82a31e3a6736" width="400"> </br>\
-<img src="https://github.com/user-attachments/assets//6d21d056-3943-46a0-a8b6-a6e2794ea1b8" width="400"> </br>\
+<img src="https://github.com/user-attachments/assets//9c0655bd-7e45-43bf-b846-82a31e3a6736" width="400">
+<img src="https://github.com/user-attachments/assets//6d21d056-3943-46a0-a8b6-a6e2794ea1b8" width="400"> </br>
 
 Todo yang sudah marked as complet dapat dijadikan aktid kembali dengan cara swipe todo completed ke kiri sampai muncul alert todo marked as active dan todo akan pindah ke bagian active todo. Proses marked as active ini didapat dari kode:
 ```

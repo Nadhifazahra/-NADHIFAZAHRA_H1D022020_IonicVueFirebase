@@ -45,7 +45,6 @@
       </ion-list>
 
       <!-- Tabs Menu -->
-      <TabsMenu />
     </ion-content>
   </ion-page>
 </template>
